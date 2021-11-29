@@ -1,5 +1,6 @@
 open Gfile
 open Tools
+open Parcours
 
 let () =
 
@@ -29,6 +30,7 @@ let () =
 
   let () = export ("./graphs/" ^ (outfile ^ ".txt")) graph in
 
+  let chemin = find_path graph 0 5 in
   ()
 
   
