@@ -1,6 +1,7 @@
 open Gfile
 open Tools
 open Parcours
+open Ford_fulkerson
 
 let () =
 
@@ -30,7 +31,12 @@ let () =
 
   let () = export ("./graphs/" ^ (outfile ^ ".txt")) graph in
 
-  let chemin = find_path graph 0 5 in
-  ()
+  let chemin = find_path graph _source _sink in
+
+  let min = find_min graph chemin in 
+
+  Printf.printf "%s\n%!" (List.fold_left (fun a b -> a ^ " " ^ string_of_int b) "" chemin) ;
+  Printf.printf "%s\n%!" (string_of_int min)
+  
 
   
