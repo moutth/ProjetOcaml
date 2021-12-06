@@ -1,4 +1,6 @@
 open Graph
 open Parcours
 
-val find_min : string graph -> id list -> int
+val find_min : int graph -> id list -> int
+
+val update_graph : int graph -> id list -> int -> int graph

@@ -31,11 +31,12 @@ let () =
 
   let () = export ("./graphs/" ^ (outfile ^ ".txt")) graph in
 
+  let graph = gmap graph (int_of_string) in 
+
   let chemin = find_path graph _source _sink in
+  Printf.printf "%s\n%!" (List.fold_left (fun a b -> a ^ " " ^ string_of_int b) "" chemin) ;
 
   let min = find_min graph chemin in 
-
-  Printf.printf "%s\n%!" (List.fold_left (fun a b -> a ^ " " ^ string_of_int b) "" chemin) ;
   Printf.printf "%s\n%!" (string_of_int min)
   
 
