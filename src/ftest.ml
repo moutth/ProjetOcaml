@@ -37,7 +37,8 @@ let () =
   Printf.printf "%s\n%!" (List.fold_left (fun a b -> a ^ " " ^ string_of_int b) "" chemin) ;
 
   let min = find_min graph chemin in 
-  Printf.printf "%s\n%!" (string_of_int min)
+  Printf.printf "%s\n%!" (string_of_int min);
   
-
+  let max_flow = ff20 graph _source _sink 0 in
+  Printf.printf "%d\n%!" max_flow
   

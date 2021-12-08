@@ -31,3 +31,11 @@ let update_graph graph path min =
             | [] -> gr
             | snd::suite -> parcours ( add_arc (add_arc gr prev snd (-min)) snd prev min) snd suite
         in parcours graph hd (nxt::tl)
+
+
+let rec ff20 graph source target max_flow =
+    let path = find_path graph source target in
+    let min =find_min graph path in
+    match min with 
+        | 0 -> max_flow
+        | x -> ff20 (update_graph graph path x) source target (max_flow+min)
